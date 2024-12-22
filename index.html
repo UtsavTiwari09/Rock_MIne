@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonar Data Classification</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="text-center">Sonar Data Classification</h2>
+    <form action="/predict" method="POST">
+        <div class="form-group">
+            <label for="input_data">Enter 60 features (comma-separated):</label>
+            <textarea class="form-control" id="input_data" name="input_data" rows="5" placeholder="e.g., 0.02,0.03,0.04,..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    {% if result %}
+        <div class="alert alert-info mt-3">
+            <strong>Prediction Result:</strong> {{ result }}
+        </div>
+    {% endif %}
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
